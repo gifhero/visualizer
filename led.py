@@ -24,3 +24,5 @@ while(1):
     cava = cava[:-1]
     for value in cava:
 
+
+asdfasdf
