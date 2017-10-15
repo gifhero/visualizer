@@ -5,7 +5,7 @@ import csv
 pins = [2, 3, 4, 17, 27, 22, 10, 9, 11, 14, 15, 18, 23, 24, 25, 8, 7]
 
 setmode(BCM)
-setWarnings(false)
+setwarnings(False)
 
 # setup all the pins and set to LOW
 for pin in pins:
@@ -85,18 +85,24 @@ while(1):
     alloff()
     col(9, colVals[0])
     time.sleep(0.001)
+    alloff()
     col(10, colVals[1])
     time.sleep(0.001)
+    alloff()
     col(22, colVals[2])
     time.sleep(0.001)
+    alloff()
     col(27, colVals[3])
     time.sleep(0.001)
+    alloff()
     col(17, colVals[4])
     time.sleep(0.001)
+    alloff()
     col(4, colVals[5])
     time.sleep(0.001)
+    alloff()
     col(3, colVals[6])
     time.sleep(0.001)
+    alloff()
     col(2, colVals[7])
     time.sleep(0.001)
-
