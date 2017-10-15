@@ -5,6 +5,8 @@ import csv
 pins = [2, 3, 4, 17, 27, 22, 10, 9, 11, 14, 15, 18, 23, 24, 25, 8, 7]
 
 setmode(BCM)
+setWarnings(false)
+
 # setup all the pins and set to LOW
 for pin in pins:
 	setup(pin, OUT)
@@ -26,52 +28,12 @@ def on(pin):
 def off(pin):
 	output(pin, LOW)
 
-def alloff(pin):
+def alloff():
 	for pin in pins:
 		output(pin, LOW)
 
-while(1):
-	# gets cava output and appends to list
-    rawCava = input()
-    cava = []
-    colVals = []
-    for char in rawCava.split(';'):
-            cava.append(char)
-    # removes whitespace added at end
-    cava = cava[:-1]
-    # converts each row value to the appropriate level
-    for value in cava:
-    	if value < LEVEL1:
-    		rowVals.append(0)
-    	elif value < LEVEL2:
-    		rowVals.append(1)
-    	elif value < LEVEL3:
-    		rowVals.append(2)
-     	elif value < LEVEL4:
-    		rowVals.append(3)
-    	elif value < LEVEL5:
-    		rowVals.append(4)
-    	elif value < LEVEL6:
-    		rowVals.append(5)
-    	elif value < LEVEL7:
-    		rowVals.append(6)
-    	elif value < LEVEL8:
-    		rowVals.append(7)
-    	else:
-    		rowVals.append(8)
-    alloff()
-    col1(rowVals[0])
-#    col2(rowVals[1])
-#    col3(rowVals[2])
-#    col4(rowVals[3])
-#    col5(rowVals[4])
-#    col6(rowVals[5])
-#    col7(rowVals[6])
-#    col8(rowVals[7])
-
-def col1(level):
-	print(level)
-	on(10)
+def col(anode, level):
+	on(anode)
 	if level < 8:
 		on(7)
 	if level < 7:
@@ -88,3 +50,53 @@ def col1(level):
 		on(15)
 	if level < 1:
 		on(14)
+
+
+while(1):
+	# gets cava output and appends to list
+    rawCava = raw_input()
+    cava = []
+    colVals = []
+    for char in rawCava.split(';'):
+            cava.append(char)
+    # removes whitespace added at end
+    cava = cava[:-1]
+    # converts each row value to the appropriate level
+    for value in cava:
+    	value = int(value)
+    	if value < LEVEL1:
+    		colVals.append(0)
+    	elif value < LEVEL2:
+    		colVals.append(1)
+    	elif value < LEVEL3:
+    		colVals.append(2)
+     	elif value < LEVEL4:
+    		colVals.append(3)
+    	elif value < LEVEL5:
+    		colVals.append(4)
+    	elif value < LEVEL6:
+    		colValscolVals.append(5)
+    	elif value < LEVEL7:
+    		colVals.append(6)
+    	elif value < LEVEL8:
+    		colVals.append(7)
+    	else:
+    		colVals.append(8)
+    alloff()
+    col(9, colVals[0])
+    time.sleep(0.001)
+    col(10, colVals[1])
+    time.sleep(0.001)
+    col(22, colVals[2])
+    time.sleep(0.001)
+    col(27, colVals[3])
+    time.sleep(0.001)
+    col(17, colVals[4])
+    time.sleep(0.001)
+    col(4, colVals[5])
+    time.sleep(0.001)
+    col(3, colVals[6])
+    time.sleep(0.001)
+    col(2, colVals[7])
+    time.sleep(0.001)
+
