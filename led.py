@@ -33,7 +33,6 @@ def alloff():
 		output(pin, LOW)
 
 def col(anode, level):
-	on(anode)
 	if level < 8:
 		on(7)
 	if level < 7:
@@ -50,8 +49,9 @@ def col(anode, level):
 		on(15)
 	if level < 1:
 		on(14)
+	on(anode)
 
-
+alloff()
 while(1):
 	# gets cava output and appends to list
     rawCava = raw_input()
@@ -75,7 +75,7 @@ while(1):
     	elif value < LEVEL5:
     		colVals.append(4)
     	elif value < LEVEL6:
-    		colValscolVals.append(5)
+    		colVals.append(5)
     	elif value < LEVEL7:
     		colVals.append(6)
     	elif value < LEVEL8:
@@ -88,7 +88,7 @@ while(1):
     alloff()
     col(10, colVals[1])
     time.sleep(0.001)
-    alloff()
+     alloff()
     col(22, colVals[2])
     time.sleep(0.001)
     alloff()
