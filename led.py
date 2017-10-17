@@ -2,7 +2,7 @@ from RPi.GPIO import *
 import time
 import csv
 
-pins = [2, 3, 4, 17, 27, 22, 10, 9, 11, 14, 15, 18, 23, 24, 25, 8, 7]
+pins = [7,11,12,13,15,18,16,22,29,31,32,33,35,36,37,38,40]
 
 setmode(BCM)
 setwarnings(False)
@@ -34,21 +34,21 @@ def alloff():
 
 def col(anode, level):
 	if level < 8:
-		on(7)
+		on(40)
 	if level < 7:
-		on(8)
+		on(38)
 	if level < 6:
-		on(25)
+		on(36)
 	if level < 5:
-		on(24)
+		on(32)
 	if level < 4:
-		on(23)
+		on(22)
 	if level < 3:
 		on(18)
 	if level < 2:
-		on(15)
+		on(16)
 	if level < 1:
-		on(14)
+		on(12)
 	on(anode)
 
 alloff()
@@ -83,26 +83,26 @@ while(1):
     	else:
     		colVals.append(8)
     alloff()
-    col(9, colVals[0])
-    time.sleep(0.001)
+    col(7, colVals[0])
+    time.sleep(0.00001)
     alloff()
-    col(10, colVals[1])
-    time.sleep(0.001)
+    col(11, colVals[1])
+    time.sleep(0.00001)
      alloff()
-    col(22, colVals[2])
-    time.sleep(0.001)
+    col(13, colVals[2])
+    time.sleep(0.00001)
     alloff()
-    col(27, colVals[3])
-    time.sleep(0.001)
+    col(15, colVals[3])
+    time.sleep(0.00001)
     alloff()
-    col(17, colVals[4])
-    time.sleep(0.001)
+    col(29, colVals[4])
+    time.sleep(0.00001)
     alloff()
-    col(4, colVals[5])
-    time.sleep(0.001)
+    col(31, colVals[5])
+    time.sleep(0.00001)
     alloff()
-    col(3, colVals[6])
-    time.sleep(0.001)
+    col(33, colVals[6])
+    time.sleep(0.00001)
     alloff()
-    col(2, colVals[7])
-    time.sleep(0.001)
+    col(35, colVals[7])
+    time.sleep(0.00001)

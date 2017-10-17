@@ -51,7 +51,7 @@ while(1):
     alloff()
     col(10, 8)
     time.sleep(0.001)
-     alloff()
+    alloff()
     col(22, 8)
     time.sleep(0.001)
     alloff()
