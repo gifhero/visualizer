@@ -2,9 +2,9 @@ from RPi.GPIO import *
 import time
 import csv
 
-pins = [2, 3, 4, 17, 27, 22, 10, 9, 11, 14, 15, 18, 23, 24, 25, 8, 7]
+pins = [7,11,12,13,15,18,16,22,29,31,32,33,35,36,37,38,40]
 
-setmode(BCM)
+setmode(BOARD)
 setwarnings(False)
 
 # setup all the pins and set to LOW
@@ -33,39 +33,31 @@ def alloff():
 		output(pin, LOW)
 
 def col(anode, level):
-	on(7)
-	on(8)
-	on(25)
-	on(24)
-	on(23)
-	on(18)
-	on(15)
-	on(14)
 	on(anode)
 
 alloff()
 while(1):
     alloff()
-    col(9, 8)
-    time.sleep(0.001)
+    col(7, 8)
+    time.sleep(0.00001)
     alloff()
-    col(10, 8)
-    time.sleep(0.001)
+    col(11, 8)
+    time.sleep(0.00001)
     alloff()
-    col(22, 8)
-    time.sleep(0.001)
+    col(13, 8)
+    time.sleep(0.00001)
     alloff()
-    col(27, 8)
-    time.sleep(0.001)
+    col(15, 8)
+    time.sleep(0.00001)
     alloff()
-    col(17, 8)
-    time.sleep(0.001)
+    col(29, 8)
+    time.sleep(0.00001)
     alloff()
-    col(4, 8)
-    time.sleep(0.001)
+    col(31, 8)
+    time.sleep(0.00001)
     alloff()
-    col(3, 8)
-    time.sleep(0.001)
+    col(33, 8)
+    time.sleep(0.00001)
     alloff()
-    col(2, 8)
-    time.sleep(0.001)
+    col(35, 8)
+    time.sleep(0.00001)

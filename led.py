@@ -88,7 +88,7 @@ while(1):
     alloff()
     col(11, colVals[1])
     time.sleep(0.00001)
-     alloff()
+    alloff()
     col(13, colVals[2])
     time.sleep(0.00001)
     alloff()
