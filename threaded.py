@@ -74,7 +74,7 @@ def updateLevels():
         i = 0
         for char in rawCava.split(';'):
             if char >= 48 and char <= 57: 
-                i = int(char)
+                value = int(char)
                 if value < LEVEL1:
                     levels[i] = 0
                 elif value < LEVEL2:
