@@ -95,7 +95,7 @@ def updateLevels():
                     levels[i] = 8
             i += 1
         changed = True
-        print("Changed")
+        print(levels)
 
 def leds():
     while(1):
