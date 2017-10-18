@@ -37,7 +37,7 @@ def coloff(anode):
     output(22, LOW)
     output(18, LOW)
     output(16, LOW)
-    output(14, LOW)
+    output(12, LOW)
 
 
 def alloff():
