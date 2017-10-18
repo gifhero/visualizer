@@ -94,6 +94,7 @@ def updateLevels():
                 levels[i] = 8
         i += 1
     changed = True
+    print("Changed")
 
 def leds():
     global changed
@@ -123,11 +124,13 @@ def leds():
         time.sleep(0.00001)
         coloff(35)
         changed = False
+        print("Unchanged")
 
 
 getInputs = threading.Thread(target=updateLevels)
-getInputs.setDaemon(True)
 getInputs.start()
+t = threading.Thread(target=leds)
+t.start()
 while(1):
-    leds()
+    pass
 
