@@ -67,32 +67,31 @@ levels = [0, 0, 0, 0, 0, 0, 0, 0]
 
 def updateLevels():
     global levels
-    while(1):
-        rawCava = raw_input()
-        cava = []
-        i = 0
-        for char in rawCava.split(';'):
-            if char: 
-                value = int(char)
-                if value < LEVEL1:
-                    levels[i] = 0
-                elif value < LEVEL2:
-                    levels[i] = 1
-                elif value < LEVEL3:
-                    levels[i] = 2
-                elif value < LEVEL4:
-                    levels[i] = 3
-                elif value < LEVEL5:
-                    levels[i] = 4
-                elif value < LEVEL6:
-                    levels[i] = 5
-                elif value < LEVEL7:
-                    levels[i] = 6
-                elif value < LEVEL8:
-                    levels[i] = 7
-                else:
-                    levels[i] = 8
-            i += 1
+    rawCava = raw_input()
+    cava = []
+    i = 0
+    for char in rawCava.split(';'):
+        if char: 
+            value = int(char)
+            if value < LEVEL1:
+                levels[i] = 0
+            elif value < LEVEL2:
+                levels[i] = 1
+            elif value < LEVEL3:
+                levels[i] = 2
+            elif value < LEVEL4:
+                levels[i] = 3
+            elif value < LEVEL5:
+                levels[i] = 4
+            elif value < LEVEL6:
+                levels[i] = 5
+            elif value < LEVEL7:
+                levels[i] = 6
+            elif value < LEVEL8:
+                levels[i] = 7
+            else:
+                levels[i] = 8
+        i += 1
 
 def leds():
     while(1):
