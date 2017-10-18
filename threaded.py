@@ -68,34 +68,33 @@ changed = False
 
 def updateLevels():
     global changed
-    while(1):
-        rawCava = raw_input()
-        cava = []
-        i = 0
-        for char in rawCava.split(';'):
-            if char >= 48 and char <= 57: 
-                i = int(char)
-                if value < LEVEL1:
-                    levels[i] = 0
-                elif value < LEVEL2:
-                    levels[i] = 1
-                elif value < LEVEL3:
-                    levels[i] = 2
-                elif value < LEVEL4:
-                    levels[i] = 3
-                elif value < LEVEL5:
-                    levels[i] = 4
-                elif value < LEVEL6:
-                    levels[i] = 5
-                elif value < LEVEL7:
-                    levels[i] = 6
-                elif value < LEVEL8:
-                    levels[i] = 7
-                else:
-                    levels[i] = 8
-            i += 1
-        changed = True
-        print("Changed")
+    rawCava = raw_input()
+    cava = []
+    i = 0
+    for char in rawCava.split(';'):
+        if char >= 48 and char <= 57: 
+            i = int(char)
+            if value < LEVEL1:
+                levels[i] = 0
+            elif value < LEVEL2:
+                levels[i] = 1
+            elif value < LEVEL3:
+                levels[i] = 2
+            elif value < LEVEL4:
+                levels[i] = 3
+            elif value < LEVEL5:
+                levels[i] = 4
+            elif value < LEVEL6:
+                levels[i] = 5
+            elif value < LEVEL7:
+                levels[i] = 6
+            elif value < LEVEL8:
+                levels[i] = 7
+            else:
+                levels[i] = 8
+        i += 1
+    changed = True
+    print("Input")
 
 def leds():
     while(1):
@@ -123,12 +122,14 @@ def leds():
         col(35, levels[7])
         time.sleep(0.00001)
         coloff(35)
+        print("Leds")
 
 
-getInputs = threading.Thread(target=updateLevels)
-getInputs.start()
+#getInputs = threading.Thread(target=updateLevels)
+#getInputs.start()
 t = threading.Thread(target=leds)
+t.daemon = True
 t.start()
-while(1):
-    pass
+while True:
+    updateLevels()
 
