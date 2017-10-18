@@ -64,7 +64,6 @@ def col(anode, level):
 	on(anode)
 
 levels = [0, 0, 0, 0, 0, 0, 0, 0]
-changed = False
 
 def updateLevels():
     global levels
@@ -73,7 +72,7 @@ def updateLevels():
         cava = []
         i = 0
         for char in rawCava.split(';'):
-            if char >= 48 and char <= 57: 
+            if char: 
                 value = int(char)
                 if value < LEVEL1:
                     levels[i] = 0
@@ -94,8 +93,6 @@ def updateLevels():
                 else:
                     levels[i] = 8
             i += 1
-        changed = True
-        print(levels)
 
 def leds():
     while(1):
@@ -125,10 +122,8 @@ def leds():
         coloff(35)
 
 
-getInputs = threading.Thread(target=updateLevels)
-getInputs.start()
 t = threading.Thread(target=leds)
+t.daemon = True
 t.start()
-while(1):
-    pass
-
+while True:
+    updateLevels()
