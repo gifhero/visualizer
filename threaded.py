@@ -67,7 +67,7 @@ levels = [0, 0, 0, 0, 0, 0, 0, 0]
 changed = False
 
 def updateLevels():
-    global changed
+    global levels
     while(1):
         rawCava = raw_input()
         cava = []
