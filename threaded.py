@@ -2,7 +2,7 @@ from RPi.GPIO import *
 import time
 import threading
 
-pins = [7,11,12,13,15,18,16,22,29,31,32,33,35,36,37,38,40]
+pins = [7,11,12,13,15,18,16,22,29,31,32,33,35,36,37,38,37]
 
 setmode(BOARD)
 setwarnings(False)
@@ -30,7 +30,7 @@ def off(pin):
 
 def coloff(anode):
     output(anode, LOW)
-    output(40, LOW)
+    output(37, LOW)
     output(38, LOW)
     output(36, LOW)
     output(32, LOW)
@@ -38,7 +38,7 @@ def coloff(anode):
     output(18, LOW)
     output(16, LOW)
     output(12, LOW)
-
+ 
 
 def alloff():
 	for pin in pins:
@@ -46,7 +46,7 @@ def alloff():
 
 def col(anode, level):
 	if level < 8:
-		on(40)
+		on(37)
 	if level < 7:
 		on(38)
 	if level < 6:
